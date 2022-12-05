@@ -4,7 +4,7 @@ import googleapiclient.discovery
 from oauth2client.client import GoogleCredentials
 
 # Change this values to match your project
-IMAGE_FILE = "wantok_images/Wantok_namba_15_page-0001.jpg"
+IMAGE_FILE = "../data/wantok_images/Wantok_namba_15_page-0002.jpg"
 CREDENTIALS_FILE = "credentials.json"
 
 # Connect to the Google Cloud-ML Service
@@ -42,6 +42,9 @@ extracted_texts = response['responses'][0]['textAnnotations']
 # Print the first piece of text found in the image
 extracted_text = extracted_texts[0]
 print(extracted_text['description'])
+
+with open("ocr_predicted.txt", "w") as file:
+    file.write(extracted_text['description'])
 
 # Print the location where the text was detected
 print(extracted_text['boundingPoly'])
