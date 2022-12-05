@@ -128,7 +128,7 @@ The features returned consists of three components. They are
 
 This model also uses the Tesseract engine and Tensorflow/Pytorch libraries in backend to run the models. 
 
-You can run this [code]() by changing the file_path and get the results. This file also returns the predicted text data and also saves into the text file.
+You can run this [code](https://github.com/umesh-gattem/OCR_NLP_Project/blob/master/layout_lm_ocr/layout_lm_ocr.py) by changing the file_path and get the results. This file also returns the predicted text data and also saves into the text file.
 
 
 
