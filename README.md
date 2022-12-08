@@ -1,4 +1,4 @@
-## Optical Character Recognition 
+## Optical Character Recognition
 
 This project is implemented to convert virtually any kind of image containing written text like images, documents, handwritten characters into machine-readable text data.
 
@@ -51,6 +51,16 @@ Once you go through the above course you will understand on how to create the CR
 
 You can run the above code by changing file and give your own image file and get the results. You can see the result on the console and also the result will store in the text file.
 
+or you can run the below command to run this file with proper arguments
+
+```python
+python3 GoogleAPI/google_cloud_api.py --image_path data/wantok_images/Wantok_namba_15_page-0002.jpg --credential_file GoogleAPI/credentials.json --output_folder_path GoogleAPI
+```
+
+Make sure from which folder you are running and which path you are providing for the image data and output folder
+
+Linked Course Reference : [Image Recognition LinkedIn Course](https://www.linkedin.com/learning/deep-learning-image-recognition/build-cutting-edge-image-recognition-systems?autoplay=true&u=87254282)
+
 ### Paddle OCR : 
 
 Paddle OCR is one of the open source library which is practical ultra-lightweight pre-trained model, support training and deployment among server, mobile, embedded and IoT devices.
@@ -64,6 +74,20 @@ As mentioned it is very light weighted and can be used with or without GPU. It r
 3. Text recognition
 
 You can run this [code](https://github.com/umesh-gattem/OCR_NLP_Project/blob/master/paddle_ocr/paddle_ocr.py) by changing the file_path and get the results. This file also returns the predicted text data and also saves into the text file.
+
+or you can run the below command to run this file with proper arguments
+
+```python
+python3 paddle_ocr/paddle_ocr_command_line.py --image_path data/wantok_images/Wantok_namba_15_page-0002.jpg --font_path .fonts/simfang.ttf --output_folder_path paddle_ocr
+```
+
+Make sure from which folder you are running and which path you are providing for the image data and output folder
+
+Now let's see the paddle OCR model architecture
+
+![paddle_ocr_model_architecture](https://raw.githubusercontent.com/umesh-gattem/OCR_NLP_Project/master/model_architectures/paddle_ocr_model.png)
+
+Below are the few references for the PaddleOCR project
 
 Paddle-OCR Research Paper: - [PP-OCR](https://arxiv.org/abs/2009.09941)
 
@@ -103,6 +127,17 @@ Like PaddleOCR, Tesseract model is also a light weight and can be run with or wi
 
 You can run this [code](https://github.com/umesh-gattem/OCR_NLP_Project/blob/master/teserract_model/teserract_ocr.py) by changing the file_path and get the results. This file also returns the predicted text data and also saves into the text file.
 
+or you can run the below command to run this file with proper arguments
+
+```python
+python3 teserract_model/teserract_ocr_command_line.py --image_path data/wantok_images/Wantok_namba_15_page-0002.jpg  --output_folder_path teserract_model
+```
+
+Make sure from which folder you are running and which path you are providing for the image data and output folder
+
+Now let's see the teserract OCR model architecture
+
+![teserract_ocr_model_architecture](https://raw.githubusercontent.com/umesh-gattem/OCR_NLP_Project/master/model_architectures/teserract_model.png)
 ### Layout Language Model
 
 Layout Language models were introduced, inspired by the BERT model where input textual information is represented by text embeddings and position embeddings. 
@@ -130,6 +165,38 @@ This model also uses the Tesseract engine and Tensorflow/Pytorch libraries in ba
 
 You can run this [code](https://github.com/umesh-gattem/OCR_NLP_Project/blob/master/layout_lm_ocr/layout_lm_ocr.py) by changing the file_path and get the results. This file also returns the predicted text data and also saves into the text file.
 
+or you can run the below command to run this file with proper arguments
+
+```python
+python3 layout_lm_ocr/layout_lm_ocr_command_line.py --image_path data/wantok_images/Wantok_namba_15_page-0002.jpg --output_folder_path layout_lm_ocr
+```
+
+Make sure from which folder you are running and which path you are providing for the image data and output folder
+
+
+Now let's see the Layout Language Model OCR model architecture
+
+![layoutlm_ocr_model_architecture](https://raw.githubusercontent.com/umesh-gattem/OCR_NLP_Project/master/model_architectures/layout_lm_model.png)
+
+
+### Google colab file
+
+In addition to the above python files, I have actually created the google colab file. You can access that ipynb file from [here](https://github.com/umesh-gattem/OCR_NLP_Project/blob/master/OCR_Extraction.ipynb).
+
+You can also refer HTML file from [here](https://github.com/umesh-gattem/OCR_NLP_Project/blob/master/OCR_Extraction.html)
+
+You can download this file and upload to google colab and follow the instruction. You should be able to run the file with all the installations. 
+**Note** : Please make sure you give input images path correctly. I have used my Google drive as storage and reading files from there. You need to change logic to read input
+
+
+### Future Scope and Implementations: 
+
+I am yet to finish two more things. 
+
+1. Perform evaluation Metrics in the given dataset using predicted text and actual/ground truth values.
+2. Finetune the Layout LM model using the input documents and also the ground truth values
+
+But I haven't done those since I am stilling working on generating the ground truth labels of the dataset. I will be updating this repository with these tasks very soon.
 
 
 
