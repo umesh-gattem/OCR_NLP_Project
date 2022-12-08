@@ -1,17 +1,20 @@
+import argparse
 import os
 
 import cv2
 import pytesseract
 from PIL import Image
 
-# file_path = "../data/resume/resume.png"
+parser = argparse.ArgumentParser(description='PyTorch Time series forecasting')
+parser.add_argument('--image_path', type=str, default='../data/wantok_images/Wantok_namba_15_page-0002.jpg',
+                    help='location of the image file')
 
-file_path = "../data/wantok_images/Wantok_namba_15_page-0002.jpg"
+parser.add_argument('--output_folder_path', type=str, default='teserract_model',
+                    help='Location of the output folder path')
 
-# images_path = list(Path(file_path + "/wantok_images").glob("*"))
+args = parser.parse_args()
 
-# image = Image.open(images_path[0])
-
+file_path = args.image_path
 
 # construct the argument parse and parse the arguments
 preprocess = None
@@ -30,16 +33,13 @@ elif preprocess == "blur":
     gray = cv2.medianBlur(gray, 3)
 # write the grayscale image to disk as a temporary file so we can
 # apply OCR to it
-filename = "{}.png".format(os.getpid())
+filename = args.output_folder_path + "/" + "result.jpg"
 cv2.imwrite(filename, gray)
 
 # load the image as a PIL/Pillow image, apply OCR, and then delete
 # the temporary file
 text = pytesseract.image_to_string(Image.open(filename))
 os.remove(filename)
-with open("ocr_predicted.txt", "w") as file:
+with open(args.output_folder_path + "/" + "ocr_predicted.txt", "w") as file:
     file.write(text)
 print(text)
-# show the output images
-cv2.imshow("Image", image)
-cv2.imshow("Output", gray)

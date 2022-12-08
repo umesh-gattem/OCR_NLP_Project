@@ -22,7 +22,6 @@ print(predicted_text)
 
 # draw result
 
-
 image = Image.open(file_path).convert('RGB')
 
 boxes = [line[0] for line in result[0]]
@@ -31,6 +30,6 @@ scores = [line[1][1] for line in result[0]]
 font = ImageFont.load_default()
 print(scores)
 print(len(boxes))
-im_show = draw_ocr(image, boxes, txts, scores)
+im_show = draw_ocr(image, boxes, txts, scores, font_path='../.fonts/simfang.ttf')
 im_show = Image.fromarray(im_show)
 im_show.save('result.jpg')

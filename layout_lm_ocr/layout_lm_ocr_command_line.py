@@ -1,9 +1,22 @@
-import cv2
-import matplotlib.pyplot as plt
+import argparse
+
 from PIL import Image, ImageDraw
+from matplotlib import pyplot as plt
 from transformers import LayoutLMv3FeatureExtractor
 
-file_path = "../data/wantok_images/Wantok_namba_15_page-0002.jpg"
+parser = argparse.ArgumentParser(description='PyTorch Time series forecasting')
+parser.add_argument('--image_path', type=str, default='../data/wantok_images/Wantok_namba_15_page-0002.jpg',
+                    help='location of the image file')
+
+parser.add_argument('--output_folder_path', type=str, default='paddle_ocr',
+                    help='Location of the output folder path')
+
+args = parser.parse_args()
+
+# Change this values to match your project
+IMAGE_FILE = args.image_path
+
+file_path = IMAGE_FILE
 
 image = Image.open(file_path)
 feature_extractor = LayoutLMv3FeatureExtractor(apply_ocr=True, ocr_lang='eng')
@@ -18,7 +31,9 @@ predicted_ocr = ""
 for word in features['words'][0]:
     predicted_ocr += word + " "
 
-with open("ocr_predicted.txt", "w") as file:
+print(predicted_ocr)
+
+with open(args.output_folder_path + "/" + "ocr_predicted.txt", "w") as file:
     file.write(predicted_ocr)
 
 image = Image.open(file_path)
@@ -35,8 +50,6 @@ for boundary_box in features['boxes'][0]:
     draw.rectangle([boundary_box[0] * width_scale, boundary_box[1] * height_scale,
                     boundary_box[2] * width_scale, boundary_box[3] * height_scale],
                    outline='red', width=2)
-filename = "result.png"
-
+filename = args.output_folder_path + "/" + "result.png"
 plt.imshow(image)
-plt.savefig("result.jpg")
-# cv2.imwrite(filename, image)
+plt.savefig(filename)
