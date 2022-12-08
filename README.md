@@ -1,4 +1,4 @@
-##Optical Character Recognition 
+## Optical Character Recognition 
 
 This project is implemented to convert virtually any kind of image containing written text like images, documents, handwritten characters into machine-readable text data.
 
@@ -47,7 +47,7 @@ This API needs your Google Cloud access and credentials JSON which can be create
 
 Before going through the API and python code for this I recommend you go through the following LinkedIn Learning Course which will give you quick heads up on how to connect to Google Cloud and generate the CREDENTIALS JSON which is required.
 
-Once you go through the above course you will understand on how to create the CREDENTIALS JSON and then we can use this [code]()
+Once you go through the above course you will understand on how to create the CREDENTIALS JSON and then we can use this [code](https://github.com/umesh-gattem/OCR_NLP_Project/blob/master/GoogleAPI/google_cloud_text_recognition.py)
 
 You can run the above code by changing file and give your own image file and get the results. You can see the result on the console and also the result will store in the text file.
 
@@ -63,7 +63,7 @@ As mentioned it is very light weighted and can be used with or without GPU. It r
 2. Detected Boxes 
 3. Text recognition
 
-You can run this [code]() by changing the file_path and get the results. This file also returns the predicted text data and also saves into the text file.
+You can run this [code](https://github.com/umesh-gattem/OCR_NLP_Project/blob/master/paddle_ocr/paddle_ocr.py) by changing the file_path and get the results. This file also returns the predicted text data and also saves into the text file.
 
 Paddle-OCR Research Paper: - [PP-OCR](https://arxiv.org/abs/2009.09941)
 
@@ -101,7 +101,7 @@ Tesseract used the power of OCR with AI to capture data from structured and unst
 
 Like PaddleOCR, Tesseract model is also a light weight and can be run with or without GPU. Also, Tesseract give the extra abilities to predict the images from the BLUR background or the bright background.
 
-You can run this [code]() by changing the file_path and get the results. This file also returns the predicted text data and also saves into the text file.
+You can run this [code](https://github.com/umesh-gattem/OCR_NLP_Project/blob/master/teserract_model/teserract_ocr.py) by changing the file_path and get the results. This file also returns the predicted text data and also saves into the text file.
 
 ### Layout Language Model
 
@@ -128,7 +128,7 @@ The features returned consists of three components. They are
 
 This model also uses the Tesseract engine and Tensorflow/Pytorch libraries in backend to run the models. 
 
-You can run this [code]() by changing the file_path and get the results. This file also returns the predicted text data and also saves into the text file.
+You can run this [code](https://github.com/umesh-gattem/OCR_NLP_Project/blob/master/layout_lm_ocr/layout_lm_ocr.py) by changing the file_path and get the results. This file also returns the predicted text data and also saves into the text file.
 
 
 
